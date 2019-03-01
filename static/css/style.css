@@ -2,3 +2,20 @@ body {
 	background-color: black;
 	color:white;
 }
+h1 {
+	background-color: black;
+	color: white;
+}
+a {
+	text-decoration: inherit;
+	background-color: azure;
+	color: blue;
+	font-size: 1rem;
+	margin: 2px 5px;
+	padding: 3px 8px;
+	border-radius: 15px 5px;
+}
+.errorpage {
+	background-color: red;
+	font-size: 1.8rem;
+}
