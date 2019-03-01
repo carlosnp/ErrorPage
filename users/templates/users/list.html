@@ -3,12 +3,10 @@
 {% block title %} {{block.super}} User | List {% endblock %}
 
 {% block content %}
-	<h1>Usuarios</h1>
-	<hr>
-	<a href="{% url 'users:home' %}">Home</a>
+	<h1>Control de Usuarios</h1>
 	<a href="{% url 'users:create' %}">Create</a>
 	<hr>
-	<table>
+	<table id="ListTable">
 		<tr>
 			<td>ID</td>
 			<td>Nombre de Usuario</td>

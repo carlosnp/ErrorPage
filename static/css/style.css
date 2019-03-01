@@ -13,9 +13,19 @@ a {
 	font-size: 1rem;
 	margin: 2px 5px;
 	padding: 3px 8px;
-	border-radius: 15px 5px;
+	border-radius: 10px 0px;
+	font-size: 1.5rem;
 }
 .errorpage {
 	background-color: red;
 	font-size: 1.8rem;
+}
+
+.errorpage h1 {
+	background-color: red;
+	font-size: 3rem;
+}
+.errordj {
+	background-color: orange;
+	color: black;
 }
