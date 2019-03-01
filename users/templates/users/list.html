@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %} {{block.super}} | Lista {% endblock %}
+{% block title %} {{block.super}} User | List {% endblock %}
 
 {% block content %}
-{% endblock content %}
+	<h1>Usuarios</h1>
+	<a href="{% url 'users:home' %}">Home</a>
+	<a href="{% url 'users:create' %}">Create</a>
+	{% for instance in object_list %}
+	     <p>{{ instance.id }} -
+	     	<a href='{{ instance.get_absolute_url }}'>{{ instance.first_name }} {{ instance.last_name }}</a>
+	     </p>    
+	{% endfor %}
+{% endblock %}

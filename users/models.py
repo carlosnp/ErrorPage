@@ -14,7 +14,7 @@ class UserModel(models.Model):
 		return str(self.username)
 	
 	def get_absolute_url(self):
-		return reverse("signup:detail", kwargs={"pk": self.pk})
+		return reverse("users:detail", kwargs={"pk": self.pk})
 	
 	class Meta:
 		verbose_name='Usuario'

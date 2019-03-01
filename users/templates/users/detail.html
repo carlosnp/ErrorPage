@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 
-{% block title %} {{block.super}} | Detalles {% endblock %}
+{% block title %} {{block.super}} User | Detail {% endblock %}
 
 {% block content %}
-{% endblock content %}
+	<h1> {{ object.username }} </h1>
+	<a href="{% url 'users:list'%}">Regresar</a> 
+	<a href="{% url 'users:update' pk=object.id %}">Actualizar</a> 
+	<a href="{% url 'users:delete' pk=object.id %}">Eliminar</a> 
+	<h3> Nombre: {{ object.first_name }} </h3>
+	<h3> Apellido: {{ object.last_name }} </h3>
+	<p>{{ object.email }}</p>
+	{% comment "optional note" %}
+	{% endcomment %}
+
+{% endblock %}

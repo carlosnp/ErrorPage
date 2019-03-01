@@ -1,7 +1,10 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 
-{% block title %} {{block.super}} | Home {% endblock %}
+{% block title %} {{block.super}} User | Home {% endblock %}
 
 {% block content %}
-<h1>Hola</h1>
+<h1>Control de Usuarios</h1>
+<a href="{% url 'users:list' %}">Lista de Usuarios</a>
+<a href="{% url 'users:create' %}">Crear Usuarios</a>
 {% endblock content %}

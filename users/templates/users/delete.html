@@ -3,4 +3,11 @@
 {% block title %} {{block.super}} | Eliminar {% endblock %}
 
 {% block content %}
-{% endblock content %}
+
+	<form action='.' method='POST'>
+		{% csrf_token %}
+	    <h1>¿Deseas eliminar al usuario "{{ instance.first_name }} {{ instance.last_name }}"?</h1>
+	    <p><input type='submit' value='Si' />  <a href="{% url 'users:list' %}">Cancel</a></p>
+	</form>
+
+{% endblock %}

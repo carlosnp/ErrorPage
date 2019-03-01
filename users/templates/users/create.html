@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
-{% block title %} {{block.super}} | Crear {% endblock %}
+{% block title %} {{block.super}} User | Create {% endblock %}
 
 {% block content %}
-{% endblock content %}
+
+	<form action='.' method='POST'>
+		{% csrf_token %}
+	    {{ form.as_p }}
+	    <a href="{% url 'users:list' %}">Cancel</a>
+	    <input type='submit' value='Guardar'/>
+	</form>
+
+{% endblock %}
