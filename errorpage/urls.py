@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/', include('users.urls', namespace="users")),
+    path('', include('users.urls', namespace="users")),
     path('400/',  django.views.defaults.bad_request, kwargs={'exception': Exception('Bad Request!')},name='Error400'),
     path('403/',  django.views.defaults.permission_denied, kwargs={'exception': Exception('Permission Denied!')},name='Error403'),
     path('404/',  django.views.defaults.page_not_found, kwargs={'exception': Exception('Page Not Found!')},name='Error404'),

@@ -4,25 +4,38 @@
 
 {% block content %}
 	<h1>Control de Usuarios</h1>
-	<a href="{% url 'users:create' %}">Create</a>
+	<a class="botones" href="{% url 'users:create' %}">Create</a>
 	<hr>
-	<table id="ListTable">
-		<tr>
-			<td>ID</td>
-			<td>Nombre de Usuario</td>
-			<td>Nombre</td>
-			<td>Apellido</td>
-			<td>Email</td>
-		</tr>
-		{% for instance in object_list %}
-		<tr>
-			<td> {{ instance.id }} </td>
-			<td> {{ instance.username }} </td>
-			<td> {{ instance.first_name }} </td>
-			<td> {{ instance.last_name }} </td>
-			<td> {{ instance.email }} </td>
-		</tr>
-		{% endfor %}
+	<table id="ListTable" class="display" style="width:100%">
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Nombre de Usuario</td>
+				<td>Nombre</td>
+				<td>Apellido</td>
+				<td>Email</td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for instance in object_list %}
+			<tr>
+				<td> {{ instance.id }} </td>
+				<td> <a href="{{ instance.get_absolute_url }}"> {{ instance.username }} </a> </td>
+				<td> {{ instance.first_name }} </td>
+				<td> {{ instance.last_name }} </td>
+				<td> {{ instance.email }} </td>
+			</tr>
+			{% endfor %}
+		</tbody>
+		<tfoot>
+			<tr>
+				<td>ID</td>
+				<td>Nombre de Usuario</td>
+				<td>Nombre</td>
+				<td>Apellido</td>
+				<td>Email</td>
+			</tr>
+		</tfoot>
 	</table>
 
 	{% comment "optional note" %}
@@ -32,5 +45,11 @@
 	     </p>    
 	{% endfor %}
 	{% endcomment %}
+
+	<script>
+		$(document).ready(function() {
+		    $('#ListTable').DataTable();
+		} );
+	</script>
 
 {% endblock %}

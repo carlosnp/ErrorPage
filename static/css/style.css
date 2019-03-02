@@ -8,6 +8,10 @@ h1 {
 }
 a {
 	text-decoration: inherit;
+}
+
+.botones {
+	text-decoration: inherit;
 	background-color: azure;
 	color: blue;
 	font-size: 1rem;
@@ -28,4 +32,18 @@ a {
 .errordj {
 	background-color: orange;
 	color: black;
+}
+.inputsub {
+	background-color: blue;
+	color: blue;
+	font-size: 1rem;
+	margin: 2px 5px;
+	padding: 3px 8px;
+	border-radius: 10px 0px;
+	font-size: 1.7rem;
+	color: white;
+}
+[class*="inputsub"]:focus {
+  	width: 200px;
+	border-radius: 10px 20px;
 }
