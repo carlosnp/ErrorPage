@@ -13,7 +13,10 @@
 	{% block head_extra %}{% endblock head_extra %}
 	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
 	<!-- DataTables -->
-	<link href="{% static 'css/jquery.dataTables.min.css' %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static 'DataTables/jquery.dataTables.min.css' %}"/>
+	<link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+	<!-- Jquery -->
+	<script src="{% static 'jquery/jquery.min.js' %}"></script>
 <body>
 	<!-- Barra de navegacion -->
 	{% include 'navbar.html' %}
@@ -21,11 +24,8 @@
 	{% block content %}{% endblock content %}
 	<!-- jquery -->
 	<script>{% block script %}{% endblock script %}</script>
-
-	<script>
-		$(document).ready(function() {
-		    $('#ListTable').DataTable();
-		} );
-	</script>
+	<!-- DataTabla -->
+	<script src="{% static 'DataTables/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'DataTables/dataTables.responsive.min.js' %}"></script>
 </body>
 </html>

@@ -6,49 +6,72 @@
 	<h1>Control de Usuarios</h1>
 	<a class="botones" href="{% url 'users:create' %}">Create</a>
 	<hr>
-	<table id="ListTable" class="display" style="width:100%">
+	<table id="TableMaster" class="display compact hover responsive nowrap" data-page-length="10" style="width:100%">
 		<thead>
 			<tr>
-				<td>ID</td>
-				<td>Nombre de Usuario</td>
+				<td>Usuario</td>
 				<td>Nombre</td>
 				<td>Apellido</td>
 				<td>Email</td>
+				<td></td>
 			</tr>
 		</thead>
 		<tbody>
 			{% for instance in object_list %}
 			<tr>
-				<td> {{ instance.id }} </td>
 				<td> <a href="{{ instance.get_absolute_url }}"> {{ instance.username }} </a> </td>
 				<td> {{ instance.first_name }} </td>
 				<td> {{ instance.last_name }} </td>
 				<td> {{ instance.email }} </td>
+				<td> 
+					<a href="{% url 'users:update' pk=instance.id %}">Actualizar</a>
+					<a href="{% url 'users:delete' pk=instance.id %}">Eliminar</a>  
+				</td>
 			</tr>
 			{% endfor %}
 		</tbody>
 		<tfoot>
 			<tr>
-				<td>ID</td>
 				<td>Nombre de Usuario</td>
 				<td>Nombre</td>
 				<td>Apellido</td>
 				<td>Email</td>
+				<td></td>
 			</tr>
 		</tfoot>
 	</table>
 
-	{% comment "optional note" %}
-	{% for instance in object_list %}
-	     <p>{{ instance.id }} -
-	     	<a href='{{ instance.get_absolute_url }}'>{{ instance.first_name }} {{ instance.last_name }}</a>
-	     </p>    
-	{% endfor %}
-	{% endcomment %}
-
 	<script>
 		$(document).ready(function() {
-		    $('#ListTable').DataTable();
+		    $('#TableMaster').DataTable({
+		    	responsive: {
+		            details: {
+		                type: 'column'
+		            }
+		        },
+		        "lengthMenu": [ 5, 10, 15, 20, 25 ],
+		    	"language": {
+		    		"processing":"Procesando...",
+		            "lengthMenu": "_MENU_ registros por página",
+		            "zeroRecords": "No se encuentran conincidencias - Lo siento",
+		            "info": "Mostrando la página _PAGE_ de _PAGES_",
+		            "infoEmpty": "No hay registros disponibles",
+		            "infoFiltered": "(filtrados de _MAX_ registros totales)",
+		            "search": "Buscar",
+		            "url":"",
+		            "loadingRecords": "Cargando...",
+		            "oPaginate": {
+				        "sFirst":    "Primero",
+				        "sLast":     "Último",
+				        "sNext":     "Siguiente",
+				        "sPrevious": "Anterior"
+				    },
+				    "oAria": {
+				        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+				        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+				    }
+		        }
+		    });
 		} );
 	</script>
 
