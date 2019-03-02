@@ -6,8 +6,12 @@
 
 	<form action='.' method='POST'>
 		{% csrf_token %}
-	    <h1>¿Deseas eliminar al usuario "{{ instance.first_name }} {{ instance.last_name }}"?</h1>
-	    <p><input type='submit' value='Si' />  <a href="{% url 'users:list' %}">Cancel</a></p>
+	    <h2>¿Estas Seguro de Eliminar a</h2>
+	    <h3> {{ object.first_name }} {{ object.last_name }}?</h3>
+	    <p> 
+	    	<a class="botones" href="{% url 'users:list' %}">No</a>
+	    	<input class="inputsub" type='submit' value='Si' />  
+	    </p>
 	</form>
 
 {% endblock %}

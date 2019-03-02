@@ -3,8 +3,8 @@ from django.db import models
 from django.urls import reverse, reverse_lazy
 
 class UserModel(models.Model):
-	first_name 	= models.CharField(max_length = 120, null = True, blank = True, verbose_name='Nombre')
-	last_name 	= models.CharField(max_length = 120, null = True, blank = True, verbose_name='Apellido')
+	first_name 	= models.CharField(max_length = 50, null = True, blank = True, verbose_name='Nombre')
+	last_name 	= models.CharField(max_length = 80, null = True, blank = True, verbose_name='Apellido')
 	username 	= models.CharField(max_length = 80, null = True, blank = True, verbose_name='Nombre de Usuario', unique=True)
 	email 		= models.EmailField(verbose_name='Email')
 	timestamp 	= models.DateTimeField(auto_now=False, auto_now_add=True, verbose_name='Fecha de Creación')
@@ -17,5 +17,5 @@ class UserModel(models.Model):
 		return reverse("users:detail", kwargs={"pk": self.pk})
 	
 	class Meta:
-		verbose_name='Usuario'
-		verbose_name_plural='Usuarios'
+		verbose_name='USUARIO'
+		verbose_name_plural='USUARIOS'

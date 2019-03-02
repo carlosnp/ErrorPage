@@ -3,12 +3,30 @@
 {% block title %} {{block.super}} User | Create {% endblock %}
 
 {% block content %}
-
-	<form action='.' method='POST'>
+	<h1>Crear Usuario</h1>
+	<div class="" style="margin: 0 auto;">
+		<form action='.' method='POST' accept-charset="utf-8" role="form">
 		{% csrf_token %}
-	    {{ form.as_p }}
-	    <a class="botones" href="{% url 'users:list' %}">Cancel</a>
-	    <input class="inputsub" type='submit' value='Guardar'/>
-	</form>
+		
+		{% for field in form %}
+			{% comment "optional note" %}
+			<div class="">			
+				<label class="labeluserform"for="{{ field.id_for_label }}"> {{ field.label }} </label>
+			</div>
+			{% endcomment %}
+			<div class="">
+				{{field}}
+			</div>
+			<div class="">
+				{% for error in field.errors %}
+                <span class='erroruserform' aria-live="polite">{{ error }}</span>
+                {% endfor %}
+			</div>
+		{% endfor %}
+
+		    <a class="botones" href="{% url 'users:list' %}">Cancel</a>
+		    <input class="inputsub" type='submit' value='Guardar'/>
+		</form>
+	</div>
 
 {% endblock %}
