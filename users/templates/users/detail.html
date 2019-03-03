@@ -9,7 +9,10 @@
 	<h1>Usuario: {{ object.username }} </h1>
 	<h3> Nombre: {{ object.first_name }} </h3>
 	<h3> Apellido: {{ object.last_name }} </h3>
+	<h4> Teléfono: {{ object.phone }} </h4>
 	<p> Email: {{ object.email }}</p>
+	<p> Fecha de Creación: {{ object.timestamp }} </p>
+	<p> Fecha de Actualización: {{ object.updated }} </p>
 	{% comment "optional note" %}
 	{% endcomment %}
 

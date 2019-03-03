@@ -4,7 +4,7 @@
 
 {% block content %}
 	<h1>Control de Usuarios</h1>
-	<a class="botones" href="{% url 'users:create' %}">Create</a>
+	<a class="botones" href="{% url 'users:create' %}">Crear Usuario</a>
 	<hr>
 	<table id="TableMaster" class="display compact hover responsive nowrap" data-page-length="10" style="width:100%">
 		<thead>
@@ -12,6 +12,7 @@
 				<td>Usuario</td>
 				<td>Nombre</td>
 				<td>Apellido</td>
+				<td>Teléfono</td>
 				<td>Email</td>
 				<td></td>
 			</tr>
@@ -22,6 +23,7 @@
 				<td> <a href="{{ instance.get_absolute_url }}"> {{ instance.username }} </a> </td>
 				<td> {{ instance.first_name }} </td>
 				<td> {{ instance.last_name }} </td>
+				<td> {{ instance.phone }} </td>
 				<td> {{ instance.email }} </td>
 				<td> 
 					<a href="{% url 'users:update' pk=instance.id %}">Actualizar</a>
@@ -35,6 +37,7 @@
 				<td>Nombre de Usuario</td>
 				<td>Nombre</td>
 				<td>Apellido</td>
+				<td>Teléfono</td>
 				<td>Email</td>
 				<td></td>
 			</tr>

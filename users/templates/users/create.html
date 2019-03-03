@@ -7,22 +7,32 @@
 	<div class="" style="margin: 0 auto;">
 		<form action='.' method='POST' accept-charset="utf-8" role="form">
 		{% csrf_token %}
-		
+		<!-- Campos -->
 		{% for field in form %}
-			{% comment "optional note" %}
 			<div class="">			
 				<label class="labeluserform"for="{{ field.id_for_label }}"> {{ field.label }} </label>
 			</div>
-			{% endcomment %}
 			<div class="">
 				{{field}}
 			</div>
+		{% endfor %}
+		<!-- Errores en los Campos -->
+		{% for field in form %}
 			<div class="">
 				{% for error in field.errors %}
-                <span class='erroruserform' aria-live="polite">{{ error }}</span>
+                	<span class='erroruserform' aria-live="polite">{{ error }}</span>
+                	<br>
                 {% endfor %}
 			</div>
 		{% endfor %}
+		<!-- Texto de ayuda -->
+		{% comment "optional note" %}
+		<div>	
+			{% if field.help_text %}
+	        	<p class="help">{{ field.help_text|safe }}</p>
+	        {% endif %}
+		</div>
+		{% endcomment %}
 
 		    <a class="botones" href="{% url 'users:list' %}">Cancel</a>
 		    <input class="inputsub" type='submit' value='Guardar'/>

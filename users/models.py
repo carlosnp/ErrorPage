@@ -6,6 +6,7 @@ class UserModel(models.Model):
 	first_name 	= models.CharField(max_length = 50, null = True, blank = True, verbose_name='Nombre')
 	last_name 	= models.CharField(max_length = 80, null = True, blank = True, verbose_name='Apellido')
 	username 	= models.CharField(max_length = 80, null = True, blank = True, verbose_name='Nombre de Usuario', unique=True)
+	phone 		= models.CharField(max_length=14, unique=True, verbose_name="Teléfono")
 	email 		= models.EmailField(verbose_name='Email')
 	timestamp 	= models.DateTimeField(auto_now=False, auto_now_add=True, verbose_name='Fecha de Creación')
 	updated 	= models.DateTimeField(auto_now=True, auto_now_add=False, verbose_name='Fecha de Actualización')
