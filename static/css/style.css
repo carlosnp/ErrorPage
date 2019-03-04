@@ -79,11 +79,18 @@ thead {
     padding: 2px 10px;
 }
 
-form {
+.formuser {
     padding: 2px;
     cursor: pointer;
     display: block;
     width: 300px;
     margin: 0 auto;
     text-align: left;
+}
+#msgduration {
+    text-align: center;
+}
+
+.btn.btn-secondary.buttons-copy.buttons-html5 {
+    background-color: red;
 }

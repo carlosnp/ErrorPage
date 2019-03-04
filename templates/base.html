@@ -12,20 +12,52 @@
 	<!-- Extra -->
 	{% block head_extra %}{% endblock head_extra %}
 	<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
-	<!-- DataTables -->
-	<link rel="stylesheet" type="text/css" href="{% static 'DataTables/jquery.dataTables.min.css' %}"/>
-	<link rel="shortcut icon" href="{% static 'favicon.ico' %}">
-	<!-- Jquery -->
-	<script src="{% static 'jquery/jquery.min.js' %}"></script>
+	<!-- DataTables basic-->
+	<link rel="stylesheet" type="text/css" href="{% static 'DataTables/css/jquery.dataTables.min.css' %}"/>
+	<!-- DataTables buttons-->
+	<link rel="stylesheet" type="text/css" href="{% static 'DataTables/css/bootstrap.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'DataTables/css/dataTables.bootstrap4.min.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'DataTables/css/buttons.bootstrap4.min.css' %}"/>
+
+	<!-- Bootstrap-->
+	<link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static '/bootstrap/css/jumbotron.css' %}">
+	<link rel="stylesheet" href="{% static '/bootstrap/css/bootstrapbasic.css' %}">
+	<!-- ICON-->
+	<link rel="shortcut icon" href="#">
 <body>
 	<!-- Barra de navegacion -->
 	{% include 'navbar.html' %}
+	<!-- Barra de mensajes -->
+	{% include 'messages.html' %} 
 	<!-- Contenido -->
 	{% block content %}{% endblock content %}
 	<!-- jquery -->
+	<script src="{% static '/jquery/jquery.min.js' %}"></script>
+	<script src="{% static '/jquery/jquery-3.3.1.slim.min.js' %}"></script>
+	<!-- DataTabla orden para exportar documentos-->
+	<script src="{% static '/jquery/jquery-3.3.1.js' %}"></script>
+	<script src="{% static 'DataTables/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'DataTables/js/dataTables.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'DataTables/js/dataTables.buttons.min.js' %}"></script>
+	<script src="{% static 'DataTables/js/buttons.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'DataTables/js/jszip.min.js' %}"></script>
+	<script src="{% static 'DataTables/js/pdfmake.min.js' %}"></script>
+	<script src="{% static 'DataTables/js/vfs_fonts.js' %}"></script>
+	<script src="{% static 'DataTables/js/buttons.html5.min.js' %}"></script>
+	<script src="{% static 'DataTables/js/buttons.print.min.js' %}"></script>
+	<script src="{% static 'DataTables/js/buttons.colVis.min.js' %}"></script>
+	<!-- DataTabla responsive-->
+	<script src="{% static 'DataTables/js/dataTables.responsive.min.js' %}"></script>
+	<!-- DataTabla buttons-->
+	<script src="{% static 'DataTables/js/buttons.flash.min.js' %}"></script>
+    <!-- bootstrap -->
+	<script src="{% static '/bootstrap/js/bootstrap.min.js' %}" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	<script src="{% static '/bootstrap/js/bootstrap.bundle.min.js' %}" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+	<script src="{% static '/popper/js/popper.min.js' %}" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+	<!-- script extra -->
 	<script>{% block script %}{% endblock script %}</script>
-	<!-- DataTabla -->
-	<script src="{% static 'DataTables/jquery.dataTables.min.js' %}"></script>
-	<script src="{% static 'DataTables/dataTables.responsive.min.js' %}"></script>
+	<!-- script js -->
+	{% block extraJs %}{% endblock extraJs %}
 </body>
 </html>

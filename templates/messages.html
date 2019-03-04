@@ -1,0 +1,13 @@
+{% if messages %}
+<div class="row">
+	<div class="col-sm-6 col-sm-offset-3" style="margin: 0 auto;">	
+		<div class="messages">
+		    {% for message in messages %}
+		    <p id="msgduration" {% if message.tags == "success" %} class="{{ message.tags }} alert alert-success"{% endif %}>
+		    	{{ message }}
+			</p>
+		    {% endfor %}
+		</div>
+	</div>
+</div>
+{% endif %}

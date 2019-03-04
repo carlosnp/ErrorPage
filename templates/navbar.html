@@ -1,7 +1,42 @@
-<hr>
-<a class="errordj botones" href="{% url 'Error400'%}">Error 400</a>
-<a class="errordj botones" href="{% url 'Error403'%}">Error 403</a>
-<a class="errordj botones" href="{% url 'Error404'%}">Error 404</a>
-<a class="errordj botones" href="{% url 'Error500'%}">Error 500</a>
-<a class="botones" href="{% url 'users:list' %}">Lista de Usuarios</a>
-<hr>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">ErrorPage</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Lista de buttons -->
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'users:list' %}">Lista de Usuarios <span class="sr-only">(current)</span></a>
+            </li>
+        	<!--    
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Error Page</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="{% url 'Error400'%}">Error 400</a>
+                    <a class="dropdown-item" href="{% url 'Error403'%}">Error 403</a>
+                    <a class="dropdown-item" href="{% url 'Error404'%}">Error 404</a>
+                    <a class="dropdown-item" href="{% url 'Error500'%}">Error 500</a>
+                </div>
+            </li>
+        </ul>
+        <!-- Login -->
+        <form class="form-inline">
+            <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control mr-sm-2">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control mr-sm-2">
+            </div>
+            <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Sign in</button>
+      </form>
+      
+    </div>
+</nav>
