@@ -91,6 +91,9 @@ thead {
     text-align: center;
 }
 
-.btn.btn-secondary.buttons-copy.buttons-html5 {
+.btn.btn-secondary.buttons-copy.buttons-html5,
+.copyButton {
     background-color: red;
+    border-color: #1c767d;
+    color: white;
 }

@@ -1,7 +1,7 @@
 # Django
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import View, TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 # Project
 from .models import *
 from .forms import *
@@ -35,3 +35,12 @@ class UserDeleteView(DeleteView):
 	template_name = 'users/delete.html'
 	queryset = UserModel.objects.all()
 	success_url = reverse_lazy("users:list")
+
+class UserDelete(View):
+
+    def post(self, request, *args, **kwargs):
+        users = request.POST.get('users', None)
+        users = UserModel.objects.get(pk=int(users))
+        users.delete()
+        messages.add_message(request, messages.SUCCESS,'El usuario se ha Eliminado satisfactoriamente.')
+        return redirect("UserListView")
