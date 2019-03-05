@@ -97,3 +97,11 @@ thead {
     border-color: #1c767d;
     color: white;
 }
+
+span.azul {
+    color: blue;
+}
+.rojo {
+    color: red;
+    text-transform: uppercase;
+}

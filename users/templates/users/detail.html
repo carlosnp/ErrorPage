@@ -7,13 +7,15 @@
 	<a href="{% url 'users:update' pk=object.id %}">Actualizar</a> 
 	<a href="{% url 'users:delete' pk=object.id %}">Eliminar</a> 
 	<h1>Usuario: {{ object.username }} </h1>
-	<h3> Nombre: {{ object.first_name }} </h3>
-	<h3> Apellido: {{ object.last_name }} </h3>
-	<h4> Teléfono: {{ object.phone }} </h4>
-	<p> Email: {{ object.email }}</p>
-	<p> Fecha de Creación: {{ object.timestamp }} </p>
-	<p> Fecha de Actualización: {{ object.updated }} </p>
-	{% comment "optional note" %}
-	{% endcomment %}
+	<div class="container">
+		<h3> Nombre: {{ object.first_name|capfirst }} </h3>
+		<h3> Apellido: {{ object.last_name|capfirst }} </h3>
+		<h4> Teléfono: {{ object.phone }} </h4>
+		<p> Email: {{ object.email }}</p>
+		<p> Fecha de Creación: {{ object.timestamp }} </p>
+		<p> Fecha de Actualización: {{ object.updated }} </p>
+		{% comment "optional note" %}
+		{% endcomment %}
+	</div>
 
 {% endblock %}

@@ -3,7 +3,7 @@
 {% block title %} {{block.super}} User | List {% endblock %}
 
 {% block content %}
-	<h1>Control de Usuarios</h1>
+	<h1 style="color:#babdc1;">Control de Usuarios</h1>
 	<a class="botones" href="{% url 'users:create' %}">Crear Usuario</a>
 	<hr>
 	<div class="container-fluid">
@@ -31,11 +31,11 @@
 						</a>
 						--> 
 					</td>
-					<td> {{ instance.first_name }} </td>
-					<td> {{ instance.last_name }} </td>
+					<td style="text-transform: capitalize;"> {{ instance.first_name }} </td>
+					<td style="text-transform: capitalize;"> {{ instance.last_name }} </td>
 					<td> {{ instance.phone }} </td>
 					<td> {{ instance.email }} </td>
-					<td> {{ instance.updated }} </td>
+					<td> {{ instance.updated|date}} </td>
 					<td> 
 						<a href="{% url 'users:update' pk=instance.id %}">Editar</a>
 						<a href="{% url 'users:delete' pk=instance.id %}">Eliminar</a>

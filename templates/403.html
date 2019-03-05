@@ -1,9 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="errorpage">
-	<h1>Error 403</h1>
-	<h2>HTTP Prohibido</h2>
-</div>
+<div class="container">
+	<div class="errorpage">
+		<h1>Error 403</h1>
+		<h2>HTTP Prohibido</h2>
+	</div>
+	<h3> ¿Como se añade esta página en Django?</h3>
+	<p>Es muy sencillo, y necesitamos seguir los siguientes pasos</p>
+	<ol>
+		<li> En nuestra carpeta <span class="azul"> templates </span> añadimos un archivo llamado <span class="azul"> 403.html</span>.</li>
+		<li> creamos la plantilla con el mensaje que deseamos mostrar.</li>
+		<li> Agregamos la siguiente ruta en el archivo  <span class="azul"> urls.py </span> para poder verla en modo desarrollo <span class="azul"> (DEBUG = True)</span>.</li>
+
+		<span class="azul"> 
+			path('403/', django.views.defaults.permission_denied, kwargs={'exception': Exception('Permission Denied!')},name='Error403') 
+		</span>
+
+		<li> Si deseamos comprobar el funcionamiento de la página de <span class="rojo">error 403</span>, en modo desarrollo, debemos correr nuestra proyecto utilizando el siguiente comando.</li>
+		<span class="azul"> python manage.py runserver --insecure </span>
+		<li> Al ir al modo de producción <span class="azul"> (DEBUG = False) </span> django no tomara los estilos por defecto, por lo cual deben ser configurados correctamente en el servidor.</li>
+	</ol>
+	<p class="rojo"> Al agregar la ruta, podremos ver en modo desarrollo como quedara nuestra página de error </p>
+	<p > Podemos cambiar el estado del booleano DEBUG en settings.py </p>
+
+
 	<a class="botones" href="{% url 'users:list' %}">ir al Home</a>
+</div>
 {% endblock content %}

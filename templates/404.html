@@ -1,9 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="errorpage">
-	<h1>Error 404</h1>
-	<h2>Página no encontrada</h2>
-</div>
+<div class="container">
+	<div class="errorpage">
+		<h1>Error 404</h1>
+		<h2>Página no encontrada</h2>
+	</div>
+	<h3> ¿Como se añade esta página en Django?</h3>
+	<p>Es muy sencillo, y necesitamos seguir los siguientes pasos</p>
+	<ol>
+		<li> En nuestra carpeta <span class="azul"> templates </span> añadimos un archivo llamado <span class="azul"> 404.html</span>.</li>
+		<li> creamos la plantilla con el mensaje que deseamos mostrar.</li>
+		<li> Agregamos la siguiente ruta en el archivo  <span class="azul"> urls.py </span> para poder verla en modo desarrollo <span class="azul"> (DEBUG = True)</span>.</li>
+
+		<span class="azul"> 
+			path('404/',  django.views.defaults.page_not_found, kwargs={'exception': Exception('Page Not Found!')},name='Error404') 
+		</span>
+
+		<li> Si deseamos comprobar el funcionamiento de la página de <span class="rojo">error 404</span>, en modo desarrollo, debemos correr nuestra proyecto utilizando el siguiente comando.</li>
+		<span class="azul"> python manage.py runserver --insecure </span>
+		<li> Al ir al modo de producción <span class="azul"> (DEBUG = False) </span> django no tomara los estilos por defecto, por lo cual deben ser configurados correctamente en el servidor.</li>
+	</ol>
+	<p class="rojo"> Al agregar la ruta, podremos ver en modo desarrollo como quedara nuestra página de error </p>
+	<p > Podemos cambiar el estado del booleano DEBUG en settings.py </p>
 	<a class="botones" href="{% url 'users:list' %}">ir al Home</a>
+</div>
 {% endblock content %}

@@ -3,7 +3,7 @@
 {% block title %} {{block.super}} | Eliminar {% endblock %}
 
 {% block content %}
-
+<div class="container">
 	<form action='.' method='POST'>
 		{% csrf_token %}
 	    <h2>¿Estas Seguro de Eliminar a</h2>
@@ -13,5 +13,6 @@
 	    	<input class="inputsub" type='submit' value='Si' />  
 	    </p>
 	</form>
+</div>
 
 {% endblock %}
